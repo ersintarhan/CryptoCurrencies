@@ -1,4 +1,4 @@
-﻿name: 'crypro-currencies'
+name: 'crypro-currencies'
 pool:
   vmImage: ubuntu-latest
 
