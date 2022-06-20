@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace CryptoCurrencies
 {
@@ -120,6 +122,34 @@ namespace CryptoCurrencies
         public static IEnumerable<CryptoCurrency> GetTestNetCurrencies()
         {
             return CryptoCurrencyInternal.GetTestNets();
+        }
+
+        public string Dump() => $"{nameof(this.IsValid)}: {this.IsValid}, {nameof(this.Symbol)}: {this.Symbol}, {nameof(this.Name)}: {this.Name}, {nameof(this.MainNet)}: {this.MainNet}, {nameof(this.TestNet)}: {this.TestNet}, {nameof(this.Segwit)}: {this.Segwit}, {nameof(this.Type)}: {this.Type}, {nameof(this.DefaultPath)}: {this.DefaultPath}, {nameof(this.PathFormat)}: {this.PathFormat}";
+
+        public string ToJson()
+        {
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append("{");
+            stringBuilder.AppendFormat("\"{0}\":", nameof(IsValid));
+            stringBuilder.AppendFormat("{0},", IsValid.ToString().ToLowerInvariant());
+            stringBuilder.AppendFormat("\"{0}\":", nameof(Symbol));
+            stringBuilder.AppendFormat("\"{0}\",", Symbol);
+            stringBuilder.AppendFormat("\"{0}\":", nameof(Name));
+            stringBuilder.AppendFormat("\"{0}\",", Name);
+            stringBuilder.AppendFormat("\"{0}\":", nameof(MainNet));
+            stringBuilder.AppendFormat("{0},", MainNet.ToString().ToLowerInvariant());
+            stringBuilder.AppendFormat("\"{0}\":", nameof(TestNet));
+            stringBuilder.AppendFormat("{0},", TestNet.ToString().ToLowerInvariant());
+            stringBuilder.AppendFormat("\"{0}\":", nameof(Segwit));
+            stringBuilder.AppendFormat("{0},", Segwit.ToString().ToLowerInvariant());
+            stringBuilder.AppendFormat("\"{0}\":", nameof(Type));
+            stringBuilder.AppendFormat("{0},", Type.ToString().ToLowerInvariant());
+            stringBuilder.AppendFormat("\"{0}\":", nameof(DefaultPath));
+            stringBuilder.AppendFormat("\"{0}\",", DefaultPath);
+            stringBuilder.AppendFormat("\"{0}\":", nameof(PathFormat));
+            stringBuilder.AppendFormat("\"{0}\"", PathFormat);
+            stringBuilder.Append("}");
+            return stringBuilder.ToString();
         }
     }
 }
