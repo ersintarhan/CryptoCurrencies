@@ -32,7 +32,7 @@ steps:
     inputs:
       command: custom
       custom: 'msbuild'
-      arguments: 'CryptoCurrencies.csproj /p:Version=$(version) /p:BuildPackage=true /p:Configuration=Release /t:Restore /t:pack'
+      arguments: 'CryptoCurrencies.csproj /p:Version=$(version) /p:BuildPackage=true /p:Configuration=Release /t:Restore /t:build /t:pack'
       workingDirectory: 'src/'
 
   - task: DotNetCoreCLI@2
