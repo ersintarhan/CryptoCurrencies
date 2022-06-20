@@ -1,0 +1,46 @@
+﻿name: 'crypro-currencies'
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - name: buildConfiguration
+    value: 'Release'
+  - name: dotNetFramework
+    value: 'net6.0'
+  - name: major
+    value: 1
+  - name: minor
+    value: 0
+  - name: patch
+    value: $[counter(variables['minor'], 0)]
+  - name: version
+    value: $(major).$(minor).$(patch)
+
+
+steps:
+
+  - task: UseDotNet@2
+    displayName: 'Install .NET Core SDK'
+    inputs:
+      version: 6.0.301
+      includePreviewVersions: true
+      performMultiLevelLookup: true
+
+
+  - task: DotNetCoreCLI@2
+    displayName: "msbuild pack"
+    inputs:
+      command: custom
+      custom: 'msbuild'
+      arguments: 'CryptoCurrencies.csproj /p:RuntimeIdentifier=linux-x64 /p:Version=$(version) /p:BuildPackage=true /p:Configuration=Release /t:Restore /t:pack'
+      workingDirectory: 'src/'
+
+  - task: DotNetCoreCLI@2
+    displayName: "dotnet push"
+    inputs:
+      command: 'push'
+      packagesToPush: 'src/bin/Release/*.nupkg'
+      nuGetFeedType: 'external'
+      publishFeedCredentials: 'nuget'
+
+  - task: PostBuildCleanup@3
