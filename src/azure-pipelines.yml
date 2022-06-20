@@ -3,6 +3,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
+  - group: crypto-settings
   - name: buildConfiguration
     value: 'Release'
   - name: dotNetFramework
@@ -35,12 +36,9 @@ steps:
       arguments: 'CryptoCurrencies.csproj /p:Version=$(version) /p:BuildPackage=true /p:Configuration=Release /t:Restore /t:build /t:pack'
       workingDirectory: 'src/'
 
-  - task: DotNetCoreCLI@2
-    displayName: "dotnet push"
-    inputs:
-      command: 'push'
-      packagesToPush: 'src/bin/Release/*.nupkg'
-      nuGetFeedType: 'external'
-      publishFeedCredentials: 'nuget'
+  - task: NuGetAuthenticate@0
+    displayName: 'Authenticate in NuGet feed'
+  - script: dotnet nuget push src/bin/Release/*.nupkg --source CryptoCurrencies --api-key $(nuget-api-key)
+    displayName: 'Uploads nuGet packages'
 
   - task: PostBuildCleanup@3
