@@ -27,6 +27,13 @@ steps:
       includePreviewVersions: true
       performMultiLevelLookup: true
 
+  - task: DotNetCoreCLI@2
+    displayName: "msbuild test"
+    inputs:
+      command: custom
+      custom: 'msbuild'
+      arguments: 'CryptoCurrencies.Test.csproj /p:Configuration=Release /t:VSTest'
+      workingDirectory: 'test/'
 
   - task: DotNetCoreCLI@2
     displayName: "msbuild pack"
