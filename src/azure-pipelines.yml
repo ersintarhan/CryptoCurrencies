@@ -38,7 +38,7 @@ steps:
 
   - task: NuGetAuthenticate@0
     displayName: 'Authenticate in NuGet feed'
-  - script: dotnet nuget push src/bin/Release/*.nupkg --source CryptoCurrencies --api-key $(nuget-api-key)
+  - script: dotnet nuget push src/bin/Release/*.nupkg --api-key $(nuget-api-key)
     displayName: 'Uploads nuGet packages'
 
   - task: PostBuildCleanup@3
