@@ -64,7 +64,7 @@ namespace CryptoCurrencies
         private static readonly CryptoCurrency XVG = new CryptoCurrency("XVG", "Verge Currency", true, false, false, 77, "m/44’/77’/0’/0/0", "m/44’/77’/0’/{0}/{1}");
         private static readonly CryptoCurrency CLUB = new CryptoCurrency("CLUB", "Club Coin", true, false, false, 79, "m/44’/79’/0’/0/0", "m/44’/79’/0’/{0}/{1}");
         private static readonly CryptoCurrency POT = new CryptoCurrency("POT", "Potcoin", true, false, false, 81, "m/44’/81’/0’/0/0", "m/44’/81’/0’/{0}/{1}");
-        private static readonly CryptoCurrency GRC = new CryptoCurrency("GRC", "Grtypecoin", true, false, false, 84, "m/44’/84’/0’/0/0", "m/44’/84’/0’/{0}/{1}");
+        private static readonly CryptoCurrency GRC = new CryptoCurrency("GRC", "Gridcoin", true, false, false, 84, "m/44’/84’/0’/0/0", "m/44’/84’/0’/{0}/{1}");
         private static readonly CryptoCurrency AUR = new CryptoCurrency("AUR", "Auroracoin", true, false, false, 85, "m/44’/85’/0’/0/0", "m/44’/85’/0’/{0}/{1}");
         private static readonly CryptoCurrency IXC = new CryptoCurrency("IXC", "IX Coin", true, false, false, 86, "m/44’/86’/0’/0/0", "m/44’/86’/0’/{0}/{1}");
         private static readonly CryptoCurrency NLG = new CryptoCurrency("NLG", "Gulden", true, false, false, 87, "m/44’/87’/0’/0/0", "m/44’/87’/0’/{0}/{1}");
@@ -134,7 +134,7 @@ namespace CryptoCurrencies
         private static readonly CryptoCurrency BST = new CryptoCurrency("BST", "Block Stamp", true, false, true, 254, "m/44’/254’/0’/0/0", "m/44’/254’/0’/{0}/{1}");
         private static readonly CryptoCurrency BOLI = new CryptoCurrency("BOLI", "Bolivarcoin", true, false, false, 278, "m/44’/278’/0’/0/0", "m/44’/278’/0’/{0}/{1}");
         private static readonly CryptoCurrency ONION = new CryptoCurrency("ONION", "Deep Onion", true, false, true, 305, "m/44’/305’/0’/0/0", "m/44’/305’/0’/{0}/{1}");
-        private static readonly CryptoCurrency RPD = new CryptoCurrency("RPD", "Raptypes", true, false, false, 320, "m/44’/320’/0’/0/0", "m/44’/320’/0’/{0}/{1}");
+        private static readonly CryptoCurrency RPD = new CryptoCurrency("RPD", "Rapids", true, false, false, 320, "m/44’/320’/0’/0/0", "m/44’/320’/0’/{0}/{1}");
         private static readonly CryptoCurrency FIX = new CryptoCurrency("FIX", "FIX", true, false, false, 336, "m/44’/336’/0’/0/0", "m/44’/336’/0’/{0}/{1}");
         private static readonly CryptoCurrency FIXTEST = new CryptoCurrency("FIXTEST", "FIX", false, true, false, 336, "m/44’/336’/0’/0/0", "m/44’/336’/0’/{0}/{1}");
         private static readonly CryptoCurrency AYA = new CryptoCurrency("AYA", "Aryacoin", true, false, false, 357, "m/44’/357’/0’/0/0", "m/44’/357’/0’/{0}/{1}");
