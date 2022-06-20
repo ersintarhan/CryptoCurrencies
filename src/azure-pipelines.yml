@@ -38,7 +38,8 @@ steps:
 
   - task: NuGetAuthenticate@0
     displayName: 'Authenticate in NuGet feed'
-  - script: dotnet nuget push src/bin/Release/netstandard2.1/*.nupkg  --source https://api.nuget.org/v3/index.json --api-key $(nuget-api-key)
+  - script: dotnet nuget push bin/**/*.nupkg  --source https://api.nuget.org/v3/index.json --api-key $(nuget-api-key)
     displayName: 'Uploads nuGet packages'
+    workingDirectory: 'src/'
 
   - task: PostBuildCleanup@3
